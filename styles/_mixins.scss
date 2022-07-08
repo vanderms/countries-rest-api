@@ -1,7 +1,12 @@
 @use 'sass:map';
 @use 'sass:math';
 
-//media query
+
+@function rem($px) {
+  $html-font-size: 16;
+  @return #{math.div($px, $html-font-size)}rem;
+}
+
 $breakpoints: (
   mobile: 360,
   tablet: 720,
@@ -10,7 +15,7 @@ $breakpoints: (
 );
 
 @mixin media($size) {
-  $breakpoint: #{map.get($breakpoints, $size)}px;
+  $breakpoint: rem(map.get($breakpoints, $size));
 
   @media screen and (min-width: $breakpoint) {
     @content;
@@ -19,15 +24,9 @@ $breakpoints: (
 
 
 @mixin media-only-tablet {
-  @media screen and (min-width: #{map.get($breakpoints, tablet)}px) and (max-width: #{map.get($breakpoints, laptop) - 1}px) {
+  @media screen and (min-width: rem(map.get($breakpoints, tablet))) and (max-width: rem(map.get($breakpoints, laptop) - 1)) {
     @content;
   }
-}
-
-
-@function rem($px) {
-  $html-font-size: 16;
-  @return #{math.div($px, $html-font-size)}rem;
 }
 
 @mixin screenreader-only {
@@ -38,4 +37,12 @@ $breakpoints: (
   overflow: hidden;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
+}
+
+@mixin container {
+  padding-inline: 4.2666667%;
+
+  @include media(tablet){
+    padding-inline: max(5.5555556%, 50vw - 640px);
+  }
 }

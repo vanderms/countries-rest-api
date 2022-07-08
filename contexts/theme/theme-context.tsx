@@ -3,32 +3,35 @@ import { createContext, useState, useContext } from "react";
 import Cookies from 'js-cookie';
 
 
-export type ThemeType = 'light' | 'dark'; 
+export enum Theme {
+  LIGHT = 'light',
+  DARK = 'dark'
+}; 
 
 interface IThemeContext {
-  theme: ThemeType; 
-  setTheme: (theme: ThemeType) => void;
+  theme: Theme; 
+  setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<IThemeContext | null>(null);
 
 
-interface IThemeContextProviderProps {
+interface ThemeContextProviderProps {
   children: React.ReactNode;
-  theme: ThemeType;
+  theme: Theme;
 }
 
-export const ThemeContextProvider: React.FC<IThemeContextProviderProps> = (props) => {
-  const [theme, setTheme] = useState<ThemeType>(props.theme);
+export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = (props) => {
+  const [theme, setTheme] = useState<Theme>(props.theme);
 
-  const changeTheme = (theme: ThemeType) => {
+  const changeTheme = (theme: Theme) => {
     Cookies.set('theme', theme, { sameSite: 'Lax' });
     setTheme(() => theme);
   }
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
     Cookies.set('theme', newTheme, { sameSite: 'Lax' });
     setTheme(() => newTheme);
   }

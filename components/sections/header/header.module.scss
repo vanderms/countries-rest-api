@@ -1,0 +1,68 @@
+@use 'styles/mixins' as *;
+@use 'sass:math';
+
+.header-section {
+  width: 100%;
+  @include container;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+
+  @include media(laptop) {
+    padding-top: 23.5px;
+    padding-bottom: 23.5px;
+  }
+}
+
+.title {
+  font-weight: 800;
+  font-size: rem(14);
+  line-height: math.div(20, 14);
+  color: var(--color-text-strong);
+
+  @include media(laptop) {
+    font-size: rem(24);
+    line-height: math.div(33, 24);
+  }
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 600;
+  font-size: rem(12);
+  line-height: math.div(16, 12);
+  color: var(--color-text-strong);
+
+  @include media(laptop) {
+    font-size: rem(16);
+    line-height: math.div(22, 16);
+  }
+
+  &::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include media(laptop) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &[data-icon='light']::before {
+    background-image: url(/assets/svg/icon-light.svg);
+  }
+
+  &[data-icon='dark']::before {
+    background-image: url(/assets/svg/icon-dark.svg);
+  }
+}
