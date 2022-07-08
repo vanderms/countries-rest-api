@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use 'sass:math';
+
+//media query
+$breakpoints: (
+  mobile: 360,
+  tablet: 720,
+  laptop: 1200,
+  desktop: 1520,
+);
+
+@mixin media($size) {
+  $breakpoint: #{map.get($breakpoints, $size)}px;
+
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+
+@mixin media-only-tablet {
+  @media screen and (min-width: #{map.get($breakpoints, tablet)}px) and (max-width: #{map.get($breakpoints, laptop) - 1}px) {
+    @content;
+  }
+}
+
+
+@function rem($px) {
+  $html-font-size: 16;
+  @return #{math.div($px, $html-font-size)}rem;
+}
+
+@mixin screenreader-only {
+  position: absolute !important;
+  left: -100vw;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
