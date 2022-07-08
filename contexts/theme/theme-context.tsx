@@ -23,13 +23,13 @@ export const ThemeContextProvider: React.FC<IThemeContextProviderProps> = (props
   const [theme, setTheme] = useState<ThemeType>(props.theme);
 
   const changeTheme = (theme: ThemeType) => {
-    Cookies.set('theme', theme, { sameSite: 'strict' });
+    Cookies.set('theme', theme, { sameSite: 'Lax' });
     setTheme(() => theme);
   }
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
-    Cookies.set('theme', newTheme, { sameSite: 'strict' });
+    Cookies.set('theme', newTheme, { sameSite: 'Lax' });
     setTheme(() => newTheme);
   }
 
