@@ -1,5 +1,6 @@
 import classes from './search-section.module.scss';
 import { useCountries, Region } from 'contexts/countries/countries';
+import { useState } from 'react';
 
 
 
@@ -20,16 +21,18 @@ export const SearchSection: React.FC = () => {
         <button className={classes["search-btn"]} aria-label='search'></button>
       </form>
       <form className={classes["filter-form"]} role='search' onSubmit={e => e.preventDefault()}>
-        <p className={classes["hint"]}>Filter by Region</p>
+        <label className={classes["hint"]}>Filter by Region
+          <input type="checkbox" name='checkbox' className={classes["hidden-input"]} />
+        </label>
         <div className={classes["filter-dropdown"]}>
-          <label>
-              All
-            <input type="radio" name="regions" value='' checked/>    
+          <label className={classes['filter-label']}>
+            <input className={classes["hidden-input"]} type="radio" name="regions" value='' checked/>    
+            <span className={classes["filter-label-text"]}>All</span>
           </label>
         {Object.values(Region).map(region => (
-          <label key={region}>
-              {region}
-             <input type="radio" name="regions" value={region} />       
+          <label key={region} className={classes['filter-label']}>              
+            <input className={classes["hidden-input"]} type="radio" name="regions" value={region}  />       
+            <span className={classes["filter-label-text"]}>{region}</span>
           </label>
         ))}
         </div>
