@@ -19,10 +19,10 @@ export interface Country {
 interface ICountriesContext {
   countries: Country[];
   region: Region | null;
-  query: string | null;
+  query: string;
   filterCountries: () => Country[];
   setRegion: (region: Region | null) => void;
-  setQuery: (query: string | null) => void;
+  setQuery: (query: string) => void;
 }
 
 const CountriesContext = createContext<ICountriesContext | null>(null);
@@ -36,20 +36,20 @@ interface CountriesContextProviderProps {
 export const CountriesContextProvider: React.FC<CountriesContextProviderProps> = (props) => {
   
   const [region, setRegion] = useState<Region | null>(null);
-  const [query, setQuery] = useState<string | null>(null);
+  const [query, setQuery] = useState<string>('');
 
   const updateRegion = (region: Region | null) => {
     setRegion(() => region as Region);
   }
 
-  const updateQuery = (filter: string | null) => {
-    setQuery(() => filter);
+  const updateQuery = (query: string) => {
+    setQuery(() => query);
   }
 
   const filterCountries = () => {
     const filteredCountries = props.countries.filter(country => {
       return (region === null || region === country.region) &&
-        (query === null || country.name.includes(query));
+        (country.name.toLowerCase().includes(query.toLowerCase()));
     });
     return filteredCountries;
   }

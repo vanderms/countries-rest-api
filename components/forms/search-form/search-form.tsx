@@ -4,16 +4,14 @@ import { useState } from 'react';
 
 
 export const SearchForm: React.FC = () => {
-  const { setQuery } = useCountries();  
-  const [ searchValue, setSearchValue ] = useState<string>('');
+  const { setQuery, query } = useCountries();
 
   return (
      <form
         className={classes['search-form']}
         role='search'
         onSubmit={(e) => {
-          e.preventDefault();
-          setQuery(searchValue);
+          e.preventDefault();          
         }}
       >
       <label className={classes['search-label']}>         
@@ -21,8 +19,10 @@ export const SearchForm: React.FC = () => {
           className={classes['search-input']}
           type="text"
           placeholder=' '
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.currentTarget.value)}
+          value={query}
+          onChange={(e) => {
+            setQuery(e.currentTarget.value);                       
+          }}
         />
         <span className={classes['search-label-text']}>Search for a country</span>
       </label>
