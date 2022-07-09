@@ -1,0 +1,89 @@
+@use 'styles/mixins' as *;
+@use 'sass:math';
+
+
+.filter-form {
+  width: 200px;
+  align-self: flex-start;
+}
+
+.hint {
+  cursor: pointer;
+  width: 100%;
+  font-weight: 400;
+  font-size: rem(14);
+  line-height: math.div(20, 14);
+  color: var(--color-text-strong);
+  padding: 14px 19px 14px 24px;
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+  border-radius: 5px;
+  background-color: var(--color-background-components);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  
+
+  @include media(laptop) {
+    padding: 18px 22px 18px 24px;
+  }
+
+  &::after {
+    content: '';
+    width: rem(10);
+    height: rem(10);
+    background-color: var(--color-text-strong);
+    mask-image: url(/assets/svg/arrow-down.svg);
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+  }
+
+    &[data-open='true']::after {
+      transform: rotate(180deg);
+      transition: transform 0.25s;
+    }
+}
+
+.hidden-input {
+  appearance: none;
+}
+
+.filter-dropdown {
+  margin-top: 4px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 0px;
+  overflow: hidden;
+  opacity: 0;
+
+  background: var(--color-background-components);
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+  border-radius: 5px;
+
+  &[data-open='true'] {
+    max-height: 300px;
+    padding: 16px 8px 16px 24px;
+    opacity: 1;
+    transition: max-height 0.25s, opacity 0.25s;
+  }
+}
+
+.filter-label-text {
+  cursor: pointer;
+  font-size: rem(14);
+  line-height: math.div(20, 14);
+  color: var(--color-text-strong);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.hidden-input:checked~.filter-label-text {
+  font-weight: 800;
+}

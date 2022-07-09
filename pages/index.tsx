@@ -5,7 +5,7 @@ import axios from 'axios';
 import { CountriesContextProvider } from 'contexts/countries/countries';
 import { Country } from 'contexts/countries/countries';
 import { HeaderSection } from 'components/sections/header/header';
-import { SearchSection } from 'components/sections/search/search-section';
+import { SearchAndFilterSection } from 'components/sections/search-and-filter/search-section';
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -41,7 +41,7 @@ const Home: NextPage<{ theme: Theme, countries: any }> = ({ countries }) => {
       <CountriesContextProvider countries={countries}>
         <main>
           <HeaderSection />
-          <SearchSection/>
+          <SearchAndFilterSection/>
         </main>      
       </CountriesContextProvider>
     </>

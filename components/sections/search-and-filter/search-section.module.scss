@@ -1,0 +1,21 @@
+@use 'styles/mixins' as *;
+@use 'sass:math';
+
+
+.search-section {
+  margin-top: 16px;
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include media(tablet) {
+    margin-top: 48px;
+  }
+
+  @include media(laptop) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
