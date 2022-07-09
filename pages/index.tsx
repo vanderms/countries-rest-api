@@ -5,6 +5,7 @@ import axios from 'axios';
 import { CountriesContextProvider } from 'contexts/countries/countries';
 import { Country } from 'contexts/countries/countries';
 import { HeaderSection } from 'components/sections/header/header';
+import { SearchSection } from 'components/sections/search/search-section';
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -39,7 +40,8 @@ const Home: NextPage<{ theme: Theme, countries: any }> = ({ countries }) => {
       </Head>     
       <CountriesContextProvider countries={countries}>
         <main>
-          <HeaderSection/>
+          <HeaderSection />
+          <SearchSection/>
         </main>      
       </CountriesContextProvider>
     </>
