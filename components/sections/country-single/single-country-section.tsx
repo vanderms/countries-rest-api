@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import classes from './single-country-section.module.scss';
-import { CountriesContextProvider, CountryExtended } from 'contexts/countries/countries';
+import { CountryExtended } from 'contexts/countries/countries';
 import Link from 'next/link';
 
 

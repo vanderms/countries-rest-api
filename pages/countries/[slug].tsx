@@ -9,7 +9,8 @@ import { SingleCountrySection } from 'components/sections/country-single/single-
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const theme = (context.req.cookies?.theme ?? 'light') as Theme;
-  const response = await axios.get(`https://restcountries.com/v3.1/name/${context?.params?.slug ?? ''}`)
+  const endpoint = encodeURI(`https://restcountries.com/v3.1/name/${context?.params?.slug ?? ''}`);
+  const response = await axios.get(endpoint)
     .catch(() => ({ data: { error: true } }));
   
   if (response.data.error) {
