@@ -18,15 +18,15 @@ export const CountryCard: React.FC<CountryCardProps> = ({country, lazyLoading}) 
           <dl className={classes['data']}>
             <div className={classes["data-item"]}>
               <dt className={classes['term']}>Population:</dt>
-              <dl className={classes['description']}>{country.population.toLocaleString('en-us') }</dl>
+              <dd className={classes['description']}>{country.population.toLocaleString('en-us') }</dd>
             </div>
             <div className={classes["data-item"]}>
               <dt className={classes['term']}>Region:</dt>
-              <dl className={classes['description']}>{ country.region }</dl>
+              <dd className={classes['description']}>{ country.region }</dd>
             </div>
             <div className={classes["data-item"]}>
               <dt className={classes['term']}>Capital:</dt>
-              <dl className={classes['description']}>{ country.capital}</dl>
+              <dd className={classes['description']}>{ country.capital}</dd>
             </div>
           </dl>
         </div>       

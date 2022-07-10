@@ -21,37 +21,37 @@ export const SingleCountrySection: React.FC<SingleCountrySectionProps> = ({ coun
       <dl className={classes['data-list']}>
         <div className={classes["data-item"]}>
           <dt className={classes['term']}>Native name:</dt>
-          <dl className={classes['description']}>{ country.nativeName }</dl>
+          <dd className={classes['description']}>{ country.nativeName }</dd>
         </div>
          <div className={classes["data-item"]}>
           <dt className={classes['term']}>Population:</dt>
-          <dl className={classes['description']}>{ country.population.toLocaleString('en-us') }</dl>
+          <dd className={classes['description']}>{ country.population.toLocaleString('en-us') }</dd>
         </div>
          <div className={classes["data-item"]}>
           <dt className={classes['term']}>Region:</dt>
-          <dl className={classes['description']}>{ country.region }</dl>
+          <dd className={classes['description']}>{ country.region }</dd>
         </div>
          <div className={classes["data-item"]}>
           <dt className={classes['term']}>Sub Region:</dt>
-          <dl className={classes['description']}>{ country.subRegion }</dl>
+          <dd className={classes['description']}>{ country.subRegion }</dd>
         </div>
          <div className={classes["data-item"]}>
           <dt className={classes['term']}>Capital:</dt>
-          <dl className={classes['description']}>{ country.capital }</dl>
+          <dd className={classes['description']}>{ country.capital }</dd>
         </div>
       </dl>
       <dl className={classes['data-list']}>
         <div className={classes["data-item"]}>
           <dt className={classes['term']}>Top level domain:</dt>
-          <dl className={classes['description']}>{ country.domain }</dl>
+          <dd className={classes['description']}>{ country.domain }</dd>
         </div>
          <div className={classes["data-item"]}>
           <dt className={classes['term']}>Currencies:</dt>
-          <dl className={classes['description']}>{ country.currencies}</dl>
+          <dd className={classes['description']}>{ country.currencies}</dd>
         </div>
          <div className={classes["data-item"]}>
           <dt className={classes['term']}>Languages:</dt>
-          <dl className={classes['description']}>{ country.languages.join(', ')}</dl>
+          <dd className={classes['description']}>{ country.languages.join(', ')}</dd>
         </div>        
       </dl>
       <aside className={classes['border-countries-container']}>
