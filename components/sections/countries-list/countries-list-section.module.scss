@@ -1,0 +1,27 @@
+@use 'sass:math';
+@use 'styles/mixins' as *;
+
+.countries-list-section{
+  margin-top: 32px;
+  @include container;
+  display: grid;
+  grid-template-columns: 264px;  
+  justify-content: center;
+  row-gap: 75px;
+  column-gap: 60px;
+
+
+  @include media(tablet){
+    grid-template-columns: repeat(auto-fit, 264px);    
+    
+  }
+
+  @include media(laptop){
+    margin-top: 48px;
+    justify-content: space-between;
+  }
+
+  li{
+    display: contents;
+  }
+}

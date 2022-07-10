@@ -1,18 +1,14 @@
 import classes from './search-form.module.scss';
 import { useCountries } from 'contexts/countries/countries';
-import { useState } from 'react';
-
 
 export const SearchForm: React.FC = () => {
   const { setQuery, query } = useCountries();
 
   return (
      <form
-        className={classes['search-form']}
-        role='search'
-        onSubmit={(e) => {
-          e.preventDefault();          
-        }}
+      className={classes['search-form']}
+      role='search'
+      onSubmit={(e) => e.preventDefault()}        
       >
       <label className={classes['search-label']}>         
         <input

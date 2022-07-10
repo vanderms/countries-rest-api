@@ -6,6 +6,7 @@ import { CountriesContextProvider } from 'contexts/countries/countries';
 import { Country } from 'contexts/countries/countries';
 import { HeaderSection } from 'components/sections/header/header';
 import { SearchAndFilterSection } from 'components/sections/search-and-filter/search-section';
+import { CountriesListSection } from 'components/sections/countries-list/countries-list-section';
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -16,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const countries: Country[] = response.data.map( (country: any) => {
     return {
       name: country.name.common,
-      flag: country?.flags?.svg || country?.flags?.png || '',
+      flag: country?.flags?.png || country?.flags?.svg || '',
       population: country.population ?? 0,
       region: country.region ?? null,
       capital: country.capital ?? ''
@@ -41,7 +42,8 @@ const Home: NextPage<{ theme: Theme, countries: any }> = ({ countries }) => {
       <CountriesContextProvider countries={countries}>
         <main>
           <HeaderSection />
-          <SearchAndFilterSection/>
+          <SearchAndFilterSection />
+          <CountriesListSection/>
         </main>      
       </CountriesContextProvider>
     </>

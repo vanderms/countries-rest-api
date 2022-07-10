@@ -3,6 +3,7 @@
 
 
 .filter-form {
+  position: relative;
   width: 200px;
   align-self: flex-start;
 }
@@ -21,9 +22,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-
-  
 
   @include media(laptop) {
     padding: 18px 22px 18px 24px;
@@ -51,6 +49,7 @@
 }
 
 .filter-dropdown {
+  position: absolute;
   margin-top: 4px;
   width: 100%;
 
