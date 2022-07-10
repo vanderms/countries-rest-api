@@ -11,9 +11,9 @@ export const CountriesListSection: React.FC = () => {
   return (
     <ul className={classes["countries-list-section"]}>
       {
-        filteredCountries.map((country, idx) => (
+        filteredCountries.map((country) => (
           <li key={ country.name }>
-            <CountryCard country={country} lazyLoading={ idx > 8 } />
+            <CountryCard country={country} />
           </li>
         ))
       }

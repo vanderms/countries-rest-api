@@ -5,14 +5,13 @@ import Link from 'next/link';
 
 interface CountryCardProps{
   country: Country;
-  lazyLoading: boolean;
 }
 
-export const CountryCard: React.FC<CountryCardProps> = ({country, lazyLoading}) => {
+export const CountryCard: React.FC<CountryCardProps> = ({country}) => {
   return (
     <Link href={`/countries/${country.name.toLowerCase()}`}><a>
       <article className={classes["country-card"]}>
-        <img className={classes['flag']} src={country.flag} alt="flag" loading={ lazyLoading ? 'lazy': 'eager'}/>
+        <img className={classes['flag']} src={country.flag} alt="flag" />
         <div className={classes["content"]}>
           <h2 className={classes["name"]}>{country.name}</h2>
           <dl className={classes['data']}>
