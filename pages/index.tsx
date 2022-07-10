@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 
 
-const Home: NextPage<{ theme: Theme, countries: any }> = ({ countries }) => {
+const Home: NextPage<{ theme: Theme, countries: Country[] }> = ({ countries }) => {
   
   return (
       <>

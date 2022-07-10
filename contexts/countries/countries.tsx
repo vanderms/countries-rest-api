@@ -16,6 +16,15 @@ export interface Country {
   capital: string;
 }
 
+export interface CountryExtended extends Country {
+  nativeName: string;
+  subRegion: string;
+  domain: string;
+  currencies: string[];
+  languages: string[]
+  borders: string[];
+}
+
 interface ICountriesContext {
   countries: Country[];
   region: Region | null;
