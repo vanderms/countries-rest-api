@@ -7,7 +7,15 @@
   padding-bottom: 60px;
   @include container;
   display: grid;
-  grid-template-columns: 1fr;  
+  grid-template-columns: 1fr;
+
+  @include media(laptop) {
+    margin: 80px 0 0;
+    padding-bottom: 340px;
+    min-height: 100vh;
+    grid-template-columns: 560px 1fr 1fr;
+    column-gap: calc(50% - 500px);
+  }
 }
 
 .back-btn {
@@ -25,6 +33,16 @@
   border-radius: 2px;
   background-color: var(--color-background-components);
 
+  @include media(laptop) {
+    grid-area: 1 / 1 / auto / span 3;
+    font-size: rem(16);
+    line-height: math.div(20, 16);
+    padding: 10px 39px 10px 32px;
+    gap: 10px;
+    border-radius: 6px;
+    margin-bottom: 80px;
+  }
+
   &::before {
     content: '';
     width: rem(18);
@@ -34,6 +52,11 @@
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
+
+    @include media(laptop) {
+      width: rem(20);
+      height: rem(20);
+    }
   }
 }
 
@@ -41,10 +64,16 @@
   margin-top: 64px;
   position: relative;
   width: 100%;
+  height: 0;
   padding-bottom: 71.5625%;
   box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.0294384);
   border-radius: 5.71755px;
   overflow: hidden;
+
+  @include media(laptop) {
+    margin-top: 0;   
+    grid-area: 2 / 1 / span 4 / auto;
+  }
 }
 
 .flag {
@@ -61,25 +90,45 @@
   font-size: rem(22);
   line-height: math.div(30, 22);
   color: var(--color-text-strong);
+
+  @include media(laptop) {    
+    font-size: rem(32);
+    line-height: math.div(44, 32);
+    grid-area: 2 / 2 / auto / span 2;
+    margin-top: 20px;
+    margin-bottom: 23px;
+  }
 }
 
 .data-list:first-of-type {
   margin-top: 16px;
+
+  @include media(laptop) {
+    margin-top: 0;
+  }
 }
 
 .data-list:nth-of-type(2) {
   margin-top: 32px;
+
+  @include media(laptop) {
+    margin-top: 0;
+  }
 }
 
 .data-item {
-  display: flex;
-  align-items: center;
+  display: flex;  
   gap: 4px;
 
   * {
     font-size: rem(14);
     line-height: math.div(32, 14);
     color: var(--color-text-strong);
+
+    @include media(laptop) {
+      font-size: rem(16);
+      line-height: math.div(32, 16);
+    }
   }
 }
 
@@ -93,6 +142,15 @@
 
 .border-countries-container {
   margin-top: 34px;
+
+  @include media(laptop) {
+    margin-top: 68px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    grid-column: 2 / span 2;
+
+  }
 }
 
 .border-countries-title {
@@ -108,6 +166,12 @@
   grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
   gap: 10px;
   justify-content: start;
+
+
+
+  @include media(laptop) {
+    margin-top: 0;
+  }
 }
 
 .border-country {
@@ -120,4 +184,11 @@
   place-items: center;
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
   border-radius: 2px;
+  font-size: rem(12);
+  line-height: math.div(16, 12);
+
+  @include media(laptop){
+    font-size: rem(14);
+    line-height: math.div(16, 14);
+  }
 }

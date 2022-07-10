@@ -55,12 +55,12 @@ export const SingleCountrySection: React.FC<SingleCountrySectionProps> = ({ coun
         </div>        
       </dl>
       <aside className={classes['border-countries-container']}>
-        <h3 className={classes["border-countries-title"]}>Border Countries</h3>
+        <h3 className={classes["border-countries-title"]}>Border Countries:</h3>
         <ul className={classes["border-countries-list"]}>
           { country.borders.map((borderCountry: string) => (
-            <li className={classes['border-country']} key={borderCountry}>
+            <li key={borderCountry}>
               <Link href={`/countries/${borderCountry}`}>
-              <a>{borderCountry}</a>             
+              <a className={classes['border-country']}>{borderCountry}</a>             
               </Link>             
             </li>
           ))}
